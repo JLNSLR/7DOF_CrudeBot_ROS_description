@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+
+<robot name="crudebot_7dof" xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+ <!-- Constants -->
+ <xacro:property name="M_PI" value="3.14159"/>
+ <xacro:property name="deg_to_rad" value="0.01745329251994329577"/>
+
+
+
+ <!-- Base Link-->
+
+ <link name="base_link">
+     <visual>
+     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+     <geometry>
+             <mesh filename="package://crudebot_7dof_description_pkg/meshes/J1_Base_positioned.dae" scale="1 1 1 "/>
+     </geometry>
+     </visual>
+     <collision>
+         
+     </collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/J1_Col_Base_positioned.stl"/>
+        </geometry>
+ </link>
+
+ <joint name="joint_0" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_0"/>
+    <origin xyz="0.0 0.0 0.2065" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1"/>
+    <limit effort="50" velocity="1" lower="${-M_PI}" upper="${M_PI}"/>
+    <dynamics damping="50" friction="1"/>
+ </joint>
+
+
+ <!-- Link 0-->
+ <link name="link_0">
+     <visual>
+         <origin xyz="0.0 0.0 0.2065" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/J2_positioned.dae" scale="1 1 1 "/>
+            </geometry>
+        </visual>
+ </link>
+
+
+
+
+</robot>
