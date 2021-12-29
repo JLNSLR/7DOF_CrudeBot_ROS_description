@@ -20,12 +20,11 @@
      </geometry>
      </visual>
      <collision>
-         
-     </collision>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <geometry>
-                <mesh filename="package://crudebot_7dof_description_pkg/meshes/J1_Col_Base_positioned.stl" scale="1 1 1" />
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/base_link_col.stl" scale="0.01 0.01 0.01" />
         </geometry>
+    </collision>
  </link>
 
  <joint name="joint_0" type="revolute">
@@ -46,6 +45,12 @@
                 <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_1.dae" scale="1 1 1 "/>
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                    <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_1_col.stl" scale="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
  </link>
 
  <joint name="joint_1" type="revolute">
@@ -66,6 +71,12 @@
                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_2.dae" scale="1 1 1 "/>
            </geometry>
        </visual>
+       <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_2_col.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+    </collision>
 </link>
 
 <joint name="joint_2" type="revolute">
@@ -86,6 +97,12 @@
                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_3.dae" scale="1 1 1 "/>
            </geometry>
        </visual>
+       <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_3_col.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+    </collision>
 </link>
 
 <joint name="joint_3" type="revolute">
@@ -106,19 +123,25 @@
                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_4.dae" scale="1 1 1 "/>
            </geometry>
        </visual>
+       <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_4_col.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+    </collision>
 </link>
 
 <joint name="joint_4" type="revolute">
     <parent link="link_3"/>
     <child link="link_4"/>
-    <origin xyz="-0.1585 0.0 -0.009" rpy="0 ${M_PI/2} ${M_PI}" />
+    <origin xyz="-0.1585 0.0 -0.009" rpy="0 ${M_PI/2} ${-M_PI}" />
     <axis xyz="0.0 0.0 1"/>
     <limit effort="50" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}"/>
     <dynamics damping="50" friction="1"/>
     
 </joint>
 
- <!-- Link 3-->
+ <!-- Link 4-->
  <link name="link_4">
     <visual>
         <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
@@ -126,8 +149,65 @@
                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_5.dae" scale="1 1 1 "/>
            </geometry>
        </visual>
+       <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_5_col.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+    </collision>
 </link>
 
+<joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0.030 0.0 0.1415" rpy="0 ${M_PI/2} ${-M_PI}" />
+    <axis xyz="0.0 0.0 1"/>
+    <limit effort="50" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}"/>
+    <dynamics damping="50" friction="1"/>
+    
+</joint>
+
+ <!-- Link 5-->
+ <link name="link_5">
+    <visual>
+        <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
+           <geometry>
+               <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_6.dae" scale="1 1 1 "/>
+           </geometry>
+       </visual>
+       <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_6_col.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+    </collision>
+</link>
+
+<joint name="joint_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="-0.0495 0.0 0.030" rpy="0 ${M_PI/2} ${M_PI}" />
+    <axis xyz="0.0 0.0 1"/>
+    <limit effort="50" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}"/>
+    <dynamics damping="50" friction="1"/>
+    
+</joint>
+
+ <!-- Link 6-->
+ <link name="link_6">
+    <visual>
+        <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
+           <geometry>
+               <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_7.dae" scale="1 1 1 "/>
+           </geometry>
+       </visual>
+       <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_7_col.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+    </collision>
+</link>
 
 
 
