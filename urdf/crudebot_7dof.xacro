@@ -16,7 +16,7 @@
      <visual>
      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
      <geometry>
-             <mesh filename="package://crudebot_7dof_description_pkg/meshes/J1_Base_positioned.dae" scale="1 1 1 "/>
+             <mesh filename="package://crudebot_7dof_description_pkg/meshes/base_link.dae" scale="1 1 1 "/>
      </geometry>
      </visual>
      <collision>
@@ -24,14 +24,14 @@
      </collision>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <geometry>
-                <mesh filename="package://crudebot_7dof_description_pkg/meshes/J1_Col_Base_positioned.stl"/>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/J1_Col_Base_positioned.stl" scale="1 1 1" />
         </geometry>
  </link>
 
  <joint name="joint_0" type="revolute">
     <parent link="base_link"/>
     <child link="link_0"/>
-    <origin xyz="0.0 0.0 0.2065" rpy="0.0 0.0 0.0"/>
+    <origin xyz="0.0 0.0 0.2065" rpy="0.0 0.0 0"/>
     <axis xyz="0.0 0.0 1"/>
     <limit effort="50" velocity="1" lower="${-M_PI}" upper="${M_PI}"/>
     <dynamics damping="50" friction="1"/>
@@ -41,12 +41,92 @@
  <!-- Link 0-->
  <link name="link_0">
      <visual>
-         <origin xyz="0.0 0.0 0.2065" rpy="0.0 0.0 0.0"/>
+         <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
             <geometry>
-                <mesh filename="package://crudebot_7dof_description_pkg/meshes/J2_positioned.dae" scale="1 1 1 "/>
+                <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_1.dae" scale="1 1 1 "/>
             </geometry>
         </visual>
  </link>
+
+ <joint name="joint_1" type="revolute">
+     <parent link="link_0"/>
+     <child link="link_1"/>
+     <origin xyz="0.0 -0.0115 0.195" rpy="${M_PI/2} ${-M_PI/2} 0.0"/>
+     <axis xyz="0.0 0.0 -1"/>
+     <limit effort="50" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}"/>
+     <dynamics damping="50" friction="1"/>
+     
+ </joint>
+
+ <!-- Link 1-->
+ <link name="link_1">
+    <visual>
+        <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
+           <geometry>
+               <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_2.dae" scale="1 1 1 "/>
+           </geometry>
+       </visual>
+</link>
+
+<joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0.1825 0.0 -0.01" rpy="${M_PI/2} ${-M_PI/2} ${M_PI/2}"/>
+    <axis xyz="0.0 0.0 1"/>
+    <limit effort="50" velocity="1" lower="${-M_PI}" upper="${M_PI}"/>
+    <dynamics damping="50" friction="1"/>
+    
+</joint>
+
+ <!-- Link 2-->
+ <link name="link_2">
+    <visual>
+        <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
+           <geometry>
+               <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_3.dae" scale="1 1 1 "/>
+           </geometry>
+       </visual>
+</link>
+
+<joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="-0.009 0.0 0.1675" rpy="0 ${M_PI/2} ${M_PI}" />
+    <axis xyz="0.0 0.0 1"/>
+    <limit effort="50" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}"/>
+    <dynamics damping="50" friction="1"/>
+    
+</joint>
+
+ <!-- Link 3-->
+ <link name="link_3">
+    <visual>
+        <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
+           <geometry>
+               <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_4.dae" scale="1 1 1 "/>
+           </geometry>
+       </visual>
+</link>
+
+<joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="-0.1585 0.0 -0.009" rpy="0 ${M_PI/2} ${M_PI}" />
+    <axis xyz="0.0 0.0 1"/>
+    <limit effort="50" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}"/>
+    <dynamics damping="50" friction="1"/>
+    
+</joint>
+
+ <!-- Link 3-->
+ <link name="link_4">
+    <visual>
+        <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0"/>
+           <geometry>
+               <mesh filename="package://crudebot_7dof_description_pkg/meshes/link_5.dae" scale="1 1 1 "/>
+           </geometry>
+       </visual>
+</link>
 
 
 
